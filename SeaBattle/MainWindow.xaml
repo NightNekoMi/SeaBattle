@@ -1,0 +1,73 @@
+﻿<Controls:MetroWindow 
+        x:Class="SeaBattle.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:ignore="http://www.galasoft.ch/ignore"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d ignore"
+        Title="Sea Battle" Height="390" Width="812"
+        DataContext="{Binding Main, Source={StaticResource Locator}}">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Skins/MainSkin.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Background="Azure">
+
+        <Button Content="Start Game" Background="Aquamarine" HorizontalAlignment="Left" Margin="366,283,0,0" VerticalAlignment="Top" Width="80" Height="27"/>
+
+        <Menu Height="29" VerticalAlignment="Top" Background="Azure">
+            <MenuItem Header="File" Height="28" Width="40" Background="Azure">
+                <MenuItem Header="New Game" Background="Azure"></MenuItem>
+                <MenuItem Header="Open Game" Background="Azure"></MenuItem>
+                <MenuItem Header="Save" Background="Azure"></MenuItem>
+                <MenuItem Header="Exit" Background="Azure" ></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Edit" Height="27" Width="40" Background="Azure">
+                <MenuItem Header="Undo" Background="Azure"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <Canvas HorizontalAlignment="Left" Height="204" Margin="321,45,0,0" VerticalAlignment="Top" Width="170" OpacityMask="#FFF5ECEC" >
+            <Canvas.Background>
+                <SolidColorBrush Color="Azure"/>
+            </Canvas.Background>
+            <Label Content="Label" Canvas.Left="10" Canvas.Top="85"/>
+            <Label Content="Label" Canvas.Left="10" Canvas.Top="54"/>
+            <Label Content="Label" Canvas.Left="10" Canvas.Top="116"/>
+            <Label Content="Label" Canvas.Left="10" Canvas.Top="23"/>
+
+        </Canvas>
+        <Label Width="150" Height="30" Background="Gainsboro" PreviewMouseDown="Button_MouseDown" Content="herotnya"></Label>
+        <UniformGrid  Columns="10" Rows="10" Height="250" Width="250" VerticalAlignment="Center" 
+                     HorizontalAlignment="Left" Background="Wheat" AllowDrop="True" Margin="27,52,0,50">
+            
+            <Button AllowDrop="True" DragOver="Button_DragOver" DragLeave="Button_DragLeave" Content="Button 1"/>
+            <Button AllowDrop="True" DragOver="Button_DragOver" DragLeave="Button_DragLeave" Content="Button 2"/>
+            <Button AllowDrop="True" DragOver="Button_DragOver" DragLeave="Button_DragLeave" Content="Button 3"/>
+            <Button AllowDrop="True" DragOver="Button_DragOver" DragLeave="Button_DragLeave" Content="Button 4"/>
+            <Button AllowDrop="True" DragOver="Button_DragOver" DragLeave="Button_DragLeave" Content="Button 5"/>
+            <Button AllowDrop="True" DragOver="Button_DragOver" DragLeave="Button_DragLeave" Content="Button 6"/>
+            <Button AllowDrop="True" DragOver="Button_DragOver" DragLeave="Button_DragLeave" Content="Button 7"/>
+            <Button AllowDrop="True" DragOver="Button_DragOver" DragLeave="Button_DragLeave" Content="Button 8"/>
+            <Button AllowDrop="True" DragOver="Button_DragOver" DragLeave="Button_DragLeave" Content="Button 9"/>
+            <Button Content="Button 10"/>
+            <Button Content="Button 11"/>
+            <Button Content="Button 12"/>
+        </UniformGrid>
+
+        <!--<Image HorizontalAlignment="Left" Height="250" Margin="27,53,0,0" VerticalAlignment="Top" Width="250" Source="Resources/Image108.gif"/>-->
+        <Image HorizontalAlignment="Left" Height="25" Margin="375,67,0,0" VerticalAlignment="Top" Width="100" Source="Resources/4DeckShip.gif"/>
+        <Image Height="25"  Width="75" Margin="400,101,321,226" Source="Resources/3DeckShip.gif" Stretch="UniformToFill"/>
+        <Image Height="25"  Width="50" Margin="424,130,322,197" Source="Resources/2DeckShip.gif" Stretch="UniformToFill"/>
+        <Image Height="25"  Width="25" Margin="450,161,321,166" Source="Resources/1DeckShip.gif" Stretch="Fill" RenderTransformOrigin="-8.2,0.52"/>
+        <Image HorizontalAlignment="Left" Height="250" Margin="535,52,0,0" VerticalAlignment="Top" Width="250" Source="Resources/Image108.gif"/>
+    </Grid>
+
+</Controls:MetroWindow>
