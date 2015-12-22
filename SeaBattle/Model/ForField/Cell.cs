@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SeaBattle.Model.ForField
 {
-    class Cell
+    public class Cell
     {
         FieldStates _state;
         pair _coord;

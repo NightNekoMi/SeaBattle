@@ -59,9 +59,10 @@ namespace SeaBattle.Model.ForField
         Stack<Ship> _stackOfShips = new Stack<Ship>();
         public BattleField()
         {
-            foreach (Cell X in Field)
+            for(int i=0; i < 10; i++)
             {
-                X.State = FieldStates.empty;
+                for (int j = 0; j < 10; j++)
+                    Field[i, j] = new Cell() { State = FieldStates.empty };
             }
             feedStackWithShips();
         }
@@ -178,6 +179,39 @@ namespace SeaBattle.Model.ForField
                     Cell currentCell = Field[varPair.x, varPair.y];
                     if (currentCell.State == FieldStates.empty)
                         currentCell.State = FieldStates.missed;
+                }
+            }
+        }
+        public void RandomPlace()
+        {
+            foreach(Ship varShip in _stackOfShips)
+            {
+                Random N = new Random();
+                foreach(pair varPair in varShip.Coordinates)
+                {
+                    if (varShip.Orientation == ShipOrientation.Horizontal)
+                    {
+                        int Yaxis= N.Next(10);
+                        int Xaxis= N.Next(10 - varShip.Length);
+                        pair[] shipCoords = new pair[varShip.Length];
+                        
+                        for(int i = 0; i < varShip.Length; i++)
+                        {
+                            shipCoords[i] = new pair(Xaxis+i, Yaxis);
+                        }
+                        while (!IsAbleToPlace(shipCoords))
+                        {
+                            Yaxis = N.Next(10);
+                            Xaxis = N.Next(10 - varShip.Length);
+                            shipCoords = new pair[varShip.Length];
+
+                            for (int i = 0; i < varShip.Length; i++)
+                            {
+                                shipCoords[i] = new pair(Xaxis + i, Yaxis);
+                            }
+                        }
+                        placeShip(shipCoords, varShip);
+                    }
                 }
             }
         }

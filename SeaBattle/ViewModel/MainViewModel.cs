@@ -1,6 +1,9 @@
 ﻿using GalaSoft.MvvmLight;
 using SeaBattle.Model;
 using SeaBattle.Model.ForField;
+using SeaBattle.Model.ForShips;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace SeaBattle.ViewModel
 {
@@ -14,7 +17,18 @@ namespace SeaBattle.ViewModel
     {
         IMyField _myField;
         IForeignField _foreignField;
-        private readonly IDataService _dataService;
+        public ObservableCollection<Cell> MyField
+        {
+            
+            get
+            {
+                List<Cell> result = new List<Cell>();
+                foreach (Cell varCell in _myField.Field)
+                    result.Add(varCell);
+                return new ObservableCollection<Cell>(result);
+            }
+        }
+        //private readonly IDataService _dataService;
 
         /// <summary>
         /// The <see cref="WelcomeTitle" /> property's name.
@@ -47,21 +61,21 @@ namespace SeaBattle.ViewModel
             _myField = new BattleField();
             _foreignField = new BattleField();
         }
-        public MainViewModel(IDataService dataService)
-        {
-            _dataService = dataService;
-            _dataService.GetData(
-                (item, error) =>
-                {
-                    if (error != null)
-                    {
-                        // Report error here
-                        return;
-                    }
+        //public MainViewModel(IDataService dataService)
+        //{
+        //    _dataService = dataService;
+        //    _dataService.GetData(
+        //        (item, error) =>
+        //        {
+        //            if (error != null)
+        //            {
+        //                // Report error here
+        //                return;
+        //            }
 
-                    WelcomeTitle = item.Title;
-                });
-        }
+        //            WelcomeTitle = item.Title;
+        //        });
+        //}
         
         ////public override void Cleanup()
         ////{

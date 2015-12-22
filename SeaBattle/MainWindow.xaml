@@ -11,14 +11,6 @@
         Title="Sea Battle" Height="390" Width="812"
         DataContext="{Binding Main, Source={StaticResource Locator}}">
 
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Skins/MainSkin.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
-
     <Grid Background="Azure">
 
         <Button Content="Start Game" Background="Aquamarine" HorizontalAlignment="Left" Margin="366,283,0,0" VerticalAlignment="Top" Width="80" Height="27"/>
@@ -44,9 +36,9 @@
             <Label Content="Label" Canvas.Left="10" Canvas.Top="23"/>
 
         </Canvas>
-        <Label Width="150" Height="30" Background="Gainsboro" PreviewMouseDown="Button_MouseDown" Content="herotnya"></Label>
+        <Label Width="150" Height="30" Background="Gainsboro" PreviewMouseDown="Button_MouseDown"  Content="herotnya"></Label>
         <UniformGrid  Columns="10" Rows="10" Height="250" Width="250" VerticalAlignment="Center" 
-                     HorizontalAlignment="Left" Background="Wheat" AllowDrop="True" Margin="27,52,0,50">
+                     HorizontalAlignment="Left" Background="Wheat" AllowDrop="True" Margin="27,52,0,50" >
             
             <Button AllowDrop="True" DragOver="Button_DragOver" DragLeave="Button_DragLeave" Content="Button 1"/>
             <Button AllowDrop="True" DragOver="Button_DragOver" DragLeave="Button_DragLeave" Content="Button 2"/>
